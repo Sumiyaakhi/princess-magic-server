@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "pic": "https://i.ibb.co/2ZKTmVL/download-1.jpg",
+      "name": "Mickey Mouse Doll",
+      "price": 14.99,
+      "ratings": 4.5
+    },
+    {
+      "id": "2",
+      "pic": "https://i.ibb.co/WHtddxH/download-2.jpg",
+      "name": "Minnie Mouse Doll",
+      "price": 12.99,
+      "ratings": 4.3
+    },
+    {
+      "id": "3",
+      "pic": "https://i.ibb.co/DLy0wNb/download-3.jpg",
+      "name": "Donald Duck Doll",
+      "price": 16.99,
+      "ratings": 4.2
+    }
+  ]
+  

@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "pic": "https://i.ibb.co/MGzBMbx/download-4.jpg",
+      "name": "Elsa Doll",
+      "price": 29.99,
+      "ratings": 4.7
+    },
+    {
+      "id": "2",
+      "pic": "https://i.ibb.co/MVy23Sr/ezgif-com-webp-to-jpg.jpg",
+      "name": "Anna Doll",
+      "price": 24.99,
+      "ratings": 4.6
+    },
+    {
+      "id": "3",
+      "pic": "https://i.ibb.co/RDRMSn6/images-2.jpg",
+      "name": "Olaf Doll",
+      "price": 19.99,
+      "ratings": 4.3
+    }
+  ]
+  
