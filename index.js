@@ -2,9 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config()
-const disneyPrincess = require('./DisneyPrincess.json');
-const frozen = require('./FrozenDoll.json');
-const animation = require('./AnimationDoll.json')
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -59,30 +56,6 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
-
-app.get('/disneyPrincess',(req,res)=>{
-    res.send(disneyPrincess)
-})
-
-app.get('/animation', (req,res)=>{
-    res.send(animation);
-})
-
-app.get('/frozen',(req,res)=>{
-    res.send(frozen);
-})
-
-
-
-
-
-
-
-
-
-
-
 
 
 
