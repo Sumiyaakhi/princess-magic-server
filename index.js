@@ -33,7 +33,7 @@ async function run() {
     const dollAddedCollection = client.db('disneyDoll').collection('dollAdded');
 
     app.get('/services',async(req,res)=>{
-        const cursor = serviceCollection.find().limit(20);
+        const cursor = serviceCollection.find().sort({price: 1}).limit(20);
         const result = await cursor.toArray();
         res.send(result);
     })
@@ -75,6 +75,23 @@ async function run() {
       const query = {_id: new ObjectId(id)}
       const result = await dollAddedCollection.deleteOne(query);
       res.send(result);
+    })
+
+    app.put('/dollAdded/:id', async(req,res)=>{
+      const id = req.params.id;
+      const {price, quantity, description} =req.body;
+      const filter = {_id: new ObjectId(id)};
+      const updateDoll = {
+        $set:{
+      
+       price:price,
+       quantity:quantity,
+       description: description,
+        }
+      }
+const option = {upsert : true};
+const result = await dollAddedCollection.updateOne(filter,updateDoll,option);
+res.send(result);
     })
 
     // Send a ping to confirm a successful connection
