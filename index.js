@@ -30,7 +30,7 @@ async function run() {
 
     const serviceCollection = client.db('disneyDoll').collection('services');
 
-    const dollAddedCollection = client.db('dollAddedDB').collection('dollAdded');
+    const dollAddedCollection = client.db('disneyDoll').collection('dollAdded');
 
     app.get('/services',async(req,res)=>{
         const cursor = serviceCollection.find().limit(20);
@@ -50,10 +50,32 @@ async function run() {
 
     app.post('/dollAdded',async(req,res)=>{
       const addedDoll = req.body;
+      if(!addedDoll){
+        return res.status(404).send({message: "Body Data not found"})
+      }
       const result = await dollAddedCollection.insertOne(addedDoll)
+      console.log(result);
+      res.send(result);
+    })
+
+    app.get('/dollAdded',async(req,res)=>{
+          console.log(req.query?.email);
+      let query = {};
+      if(req.query?.email){
+        query = {email: req.query.email}
+      }
+      const result = await dollAddedCollection.find(query).toArray();
       res.send(result);
     })
     
+// for delete an unique information....
+
+    app.delete('/dollAdded/:id',async(req,res)=>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)}
+      const result = await dollAddedCollection.deleteOne(query);
+      res.send(result);
+    })
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
