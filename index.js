@@ -25,10 +25,12 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
+    await client.connect();
 
 
     const serviceCollection = client.db('disneyDoll').collection('services');
+
+    const dollAddedCollection = client.db('dollAddedDB').collection('dollAdded');
 
     app.get('/services',async(req,res)=>{
         const cursor = serviceCollection.find().limit(20);
@@ -44,6 +46,10 @@ async function run() {
         // }
         const result = await serviceCollection.findOne(query);
         res.send(result);
+    })
+
+    app.post('/dollAdded',async(req,res)=>{
+      
     })
     
 
