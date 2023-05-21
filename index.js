@@ -49,7 +49,9 @@ async function run() {
     })
 
     app.post('/dollAdded',async(req,res)=>{
-      
+      const addedDoll = req.body;
+      const result = await dollAddedCollection.insertOne(addedDoll)
+      res.send(result);
     })
     
 
